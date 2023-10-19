@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.bg-footer{
+    background: rgb(22,5,43);
+    background: linear-gradient(90deg, rgba(22,5,43,0.969625350140056) 27%, rgba(46,27,84,1) 96%);
+    color: rgb(209, 195, 177);
+}
+.w-logo{
+    width: 18vw;
+}
+.color-icons{
+    color: rgb(209, 195, 177);
+
+}
+.color-icons:hover{
+    color:white
+}
+.bg-degradeNegro {
+    background: rgb(23, 2, 40);
+    background: radial-gradient(
+      circle,
+      rgba(23, 2, 40, 0.969625350140056) 0%,
+      rgba(56, 4, 85, 1) 100%
+    );
+  }
+.letraError {
+    font-family: "Pixelify Sans", "cursive";
+    font-size: 10rem;
+  }
+
+ /* Tamaño tablet (768-480) */
+ @media all and (min-width: 480px) and (max-width: 768px) {
+    .w-logo{
+        width: 25vw;
+    }
+  }
+ 
+ /* Tamaño teléfonos (480-menos ) */
+ @media all and (max-width: 480px) { 
+    .w-logo{
+        width: 40vw;
+    }
+ }
