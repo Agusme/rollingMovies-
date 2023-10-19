@@ -243,3 +243,28 @@ function cargarCarruseles() {
 }
 
 cargarCarruseles();
+
+const login=()=>{
+  const isAdmin = localStorage.getItem("isAdmin");
+  if (isAdmin === "true"){
+    let adminLink = document.getElementById("adminLink");
+    adminLink.className = "d-block";
+    let logOut = document.getElementById("logOut");
+    logOut.className = "d-block";
+    let loginLink = document.getElementById("loginLink")
+    loginLink.className ="d-none"
+    let registerLink = document.getElementById("registerLink")
+    registerLink.className ="d-none"
+  }
+}
+
+document.addEventListener("DOMContentLoaded", login);
+const logout = () => {
+  localStorage.removeItem("isAdmin");
+
+  location.replace("/pages/login.html");
+}
+
+const logoutButton = document.getElementById("logOut"); 
+logoutButton.addEventListener("click", logout);
+
