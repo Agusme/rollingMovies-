@@ -1,3 +1,5 @@
+import { login, logout } from "./admin.js";
+
 function getCodigoPeliculaFromHash() {
     const hash = location.hash;
     console.log(hash);
@@ -41,4 +43,12 @@ function getCodigoPeliculaFromHash() {
   };
   
   detallePelicula();
+  document.addEventListener("DOMContentLoaded", ()=>{
+    login()
+  });
   
+  
+  const logoutButton = document.getElementById("logOut"); 
+  logoutButton.addEventListener("click", ()=>{
+    logout()
+  });
