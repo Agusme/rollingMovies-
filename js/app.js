@@ -1,16 +1,17 @@
 import { login, logout } from "./admin.js";
 
+let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
+let logoutButton = document.getElementById("logOut"); 
+
+
 document.addEventListener("DOMContentLoaded", ()=>{
   login()
 });
 
-
-const logoutButton = document.getElementById("logOut"); 
 logoutButton.addEventListener("click", ()=>{
   logout()
 });
 
-let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
 
 const peliculas = [
   {
