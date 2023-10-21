@@ -41,6 +41,8 @@ if (nombreValidado.test(input.value)&& input.value.trim(). length> 0){
 
   }
   
+
+
   /* export function sumarioValidaciones (campoMail,campoAsunto,campoDescripcion){
     let mensaje ='';
     if(!validarMail(campoMail))

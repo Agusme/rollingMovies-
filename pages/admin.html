@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="shortcut icon" href="/assets/rm.png" type="image/x-icon" />
-    <script src="https://kit.fontawesome.com/0b39408f88.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/0b39408f88.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
     <title>Rolling Movies+</title>
   </head>
@@ -26,9 +31,9 @@
         data-bs-theme="dark"
       >
         <div class="container-fluid">
-          <a href="/index.html"
+          <a href="index.html"
             ><img
-              src="/assets/logoRollingMovie.png"
+              src="assets/logoRollingMovie.png"
               alt=""
               class="img-fluid w-logo"
           /></a>
@@ -48,107 +53,43 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link  fw-bold" aria-current="page" href="/index.html"
+                <a class="nav-link fw-bold" aria-current="page" href="/index.html"
                   >INICIO</a
                 >
               </li>
-              <li class="nav-item">
+              <li id="loginLink" class="nav-item d-block">
                 <a class="nav-link fw-bold" href="/pages/login.html">LOGIN</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active fw-bold" href="">REGISTRO</a>
+              <li id="registerLink" class="nav-item d-block">
+                <a class="nav-link fw-bold" href="/pages/register.html"
+                  >REGISTRO</a
+                >
               </li>
-              <li id="registerLink"  class="nav-item d-block">
-                <a class="nav-link fw-bold" href="/pages/nosotros.html">NOSOTROS</a>
+              <li id="registerLink" class="nav-item d-block">
+                <a class="nav-link fw-bold" href="/pages/nosotros.html"
+                  >NOSOTROS</a
+                >
               </li>
-              <li id="registerLink"  class="nav-item d-block">
-                <a class="nav-link fw-bold" href="/pages/contact.html">CONTACTO</a>
+              <li id="registerLink" class="nav-item d-block">
+                <a class="nav-link  fw-bold" href="/pages/contact.html"
+                  >CONTACTO</a
+                >
               </li>
-              
+              <li id="adminLink" class="d-none">
+                <a class="nav-link active fw-bold" href="/pages/admin.html">ADMIN</a>
+              </li>
+              <li id="logOut" class="d-none">
+                <a class="nav-link fw-bold" href="#">LOG OUT</a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <main class="img-login container-fluid pt-5">
-        <div class="row">
-          <div class="col-12 col-md-8 offset-md-2">
-            <div class="card bg-footer mt-5">
-              <div class="card-body">
-                <h3 class="card-title text-center text-white">Registro</h3>
-                <form
-                  action="https://formsubmit.co/agusmena60@gmail.com"
-                  method="POST"
-                  id="formMail"
-                >
-                  <label class="fw-bold">Nombre</label>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="name"
-                    maxlength="15"
-                    name="Nombre"
-                    placeholder="Escribe tu nombre"
-                    required
-                  />
-                  <label class="fw-bold">Apellido</label>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="lastname"
-                    placeholder="Apellido"
-                    maxlength="15"
-                  />
-                  <label class="fw-bold">Correo electronico</label>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="exampleInputEmail"
-                    name="correo electronico"
-                    placeholder="tunombre@gmail.com"
-                    maxlength="30"
-                  />
-                  <label class="fw-bold">Contraseña</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    name="contraseña"
-                    maxlength="15"
-                  />
-                  <label class="fw-bold">Repetir contraseña</label>
-                  <input
-                    type="password"
-                    class="form-control mb-2"
-                    id="repeatPassword"
-                    name="contraseña-repetida"
-                    maxlength="15"
-                  />
-                  <div class="invalid-feedback">
-                    Las contraseñas deben coincidir
-                  </div>
-                  <div class="mb-3 form-check ms-3 col-md-11">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="exampleCheck1"
-                      required
-                    />
-                    <label class="form-check-label ms-3" for="exampleCheck1"
-                      >Acepto Términos y Condiciones</label
-                    >
-                  </div>
-                  <div class="d-flex justify-content-center">
-                    <button class="btn btn-reproducir">Registrarse</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+    <main>
 
-      <footer class="bg-footer position-relative">
+    </main>
+    <footer class="bg-footer position-relative">
         <section class="container pt-4 text-center">
           <article class="row">
             <div class="col-sm-12 col-md-3 col-lg-3 pt-3">
@@ -216,6 +157,6 @@
       </footer> 
   
       <script src="/js/bootstrap.min.js"></script>
-      <script src="/js/register.js" type="module"></script>
+      <script src="/js/contacto.js" type="module"></script>
     </body>
   </html>

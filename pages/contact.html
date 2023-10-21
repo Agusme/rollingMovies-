@@ -31,9 +31,9 @@
         data-bs-theme="dark"
       >
         <div class="container-fluid">
-          <a href="/index.html"
+          <a href="index.html"
             ><img
-              src="/assets/logoRollingMovie.png"
+              src="assets/logoRollingMovie.png"
               alt=""
               class="img-fluid w-logo"
           /></a>
@@ -53,17 +53,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link fw-bold"
-                  aria-current="page"
-                  href="/index.html"
+                <a class="nav-link fw-bold" aria-current="page" href="/index.html"
                   >INICIO</a
                 >
               </li>
-              <li class="nav-item">
+              <li id="loginLink" class="nav-item d-block">
                 <a class="nav-link fw-bold" href="/pages/login.html">LOGIN</a>
               </li>
-              <li class="nav-item">
+              <li id="registerLink" class="nav-item d-block">
                 <a class="nav-link fw-bold" href="/pages/register.html"
                   >REGISTRO</a
                 >
@@ -77,6 +74,12 @@
                 <a class="nav-link active fw-bold" href="/pages/contact.html"
                   >CONTACTO</a
                 >
+              </li>
+              <li id="adminLink" class="d-none">
+                <a class="nav-link fw-bold" href="/pages/admin.html">ADMIN</a>
+              </li>
+              <li id="logOut" class="d-none">
+                <a class="nav-link fw-bold" href="#">LOG OUT</a>
               </li>
             </ul>
           </div>
