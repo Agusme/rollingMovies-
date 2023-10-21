@@ -5,12 +5,10 @@ let campoConstraseña = document.getElementById("password")
 
 
 campoEmail.addEventListener("blur", () => {
-  console.log("desde blur");
   validarMail(campoEmail)});
 
 
 campoConstraseña.addEventListener("blur", () => {
-  console.log("desde blur");
   campoRequerido(campoConstraseña, 1, 15);
 });
 
@@ -37,7 +35,7 @@ const logIn = (event) => {
       icon: 'error',
       title: 'Oops...',
       text: 'Usuario o contraseña incorrecta',
-      footer: '<a href="../pages/recuperacioncuenta.html">Recuperar contraseña</a>'
+      footer: '<a href="/pages/error.html">Recuperar contraseña</a>'
     })
 
 

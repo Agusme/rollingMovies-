@@ -28,8 +28,20 @@ export const campoRequerido = (input, min, max) => {
     }
   };
   
+ export const validarNombre =(input)=>{
+const nombreValidado = /^[A-Za-z\s\-']+$/
+if (nombreValidado.test(input.value)&& input.value.trim(). length> 0){
+  input.className =" form-control is-valid"
+  return true;
+} else{
+  input.className = "form-control is-invalid";
   
-  export function sumarioValidaciones (campoMail,campoAsunto,campoDescripcion){
+  return false;
+}
+
+  }
+  
+  /* export function sumarioValidaciones (campoMail,campoAsunto,campoDescripcion){
     let mensaje ='';
     if(!validarMail(campoMail))
     {
@@ -51,4 +63,4 @@ export const campoRequerido = (input, min, max) => {
       return '';
     }
   }
-  
+   */
