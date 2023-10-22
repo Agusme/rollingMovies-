@@ -13,8 +13,6 @@ export const campoRequerido = (input, min, max) => {
     }
   };
    
-  
-  
   export const validarMail = (input) => {
     const validacion = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     if (validacion.test(input.value) && input.value.trim().length > 0) {
@@ -27,7 +25,7 @@ export const campoRequerido = (input, min, max) => {
       return false;
     }
   };
-  
+
  export const validarNombre =(input)=>{
 const nombreValidado = /^[A-Za-z\s\-']+$/
 if (nombreValidado.test(input.value)&& input.value.trim(). length> 0){
@@ -38,31 +36,46 @@ if (nombreValidado.test(input.value)&& input.value.trim(). length> 0){
   
   return false;
 }
+ }
+ export const validarURL = (input) => {
+  let patron = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
 
+  if (patron.test(input.value)) {
+    input.className = "form-control is-valid";
+    return true;
+  } else {
+    input.className = "form-control is-invalid";
+    return false;
   }
+};
+
   
-
-
-  /* export function sumarioValidaciones (campoMail,campoAsunto,campoDescripcion){
-    let mensaje ='';
-    if(!validarMail(campoMail))
-    {
-      mensaje +='El mail debe ser del formato nombre@ejmplo.com <br>'
-    }
-    if(!campoRequerido(campoMail,5,50)){
-      console.log('campoMail')
-      mensaje += 'El mail debe contener entre 5 y 50 caracteres <br>';
-    }
-    if(!campoRequerido(campoAsunto,5,50)){
-      mensaje += 'El asunto debe contener entre 5 y 10 caracteres <br>';
-    }
-    if(!campoRequerido(campoDescripcion,10,1000)){
-      mensaje+='La descripcion debe contener entre 10 y 1000 caracteres <br>'
-    }
-    if(mensaje.length!==0){
-      return mensaje;
-    }else{
-      return '';
-    }
-  }
-   */
+ export const validarGeneral = (
+campoCodigo,
+campoNombre, 
+campoDestacada,
+campoSrcImage,
+campoDescription,
+campoReleased,
+campoTrailerLink,
+  
+) => {
+    let alert= document.getElementById("mensajeAlert")
+ 
+    //comparar que pase cada una de las validaciones y si no pasa mostrar el alert
+    if (
+    campoRequerido(campoCodigo) &&
+    campoRequerido(campoNombre) &&
+    campoRequerido(campoDescription) &&
+    validarURL(campoSrcImage) &&
+    validarURL(campoTrailerLink)
+  ) {
+    alert.className = "alert alert-danger my-3 d-none"
+    console.log("validacion correcta")
+    return true
+  } else {
+    console.log("validacion INCORRECTA")
+    alert.className = "alert alert-danger my-3"
+return false
+}
+};

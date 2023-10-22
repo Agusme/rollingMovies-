@@ -2,6 +2,7 @@ export class Pelicula{
   constructor(
     codigo,
     nombre,
+    categoria,
     destacada,
     srcImage,
     description,
@@ -10,6 +11,7 @@ export class Pelicula{
   ) {
     this.codigo = codigo;
     this.nombre = nombre;
+    this.categoria= categoria;
     this.destacada = destacada;
     this.srcImage = srcImage;
     this.description = description;
@@ -22,6 +24,9 @@ export class Pelicula{
   }
   get mostrarNombre() {
     return this.nombre;
+  }
+  get mostrarCategoria() {
+    return this.categoria;
   }
   get mostrarDestacada() {
     return this.destacada;
@@ -43,6 +48,9 @@ export class Pelicula{
   }
   set modificarNombre(nuevoNombre) {
     this.nombre = nuevoNombre;
+  }
+  set modificarCategoria(nuevoCategoria) {
+    this.categoria = nuevoCategoria;
   }
   set modificarDestacada(nuevoDestacada) {
     this.destacada = nuevoDestacada;
