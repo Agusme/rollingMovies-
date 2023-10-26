@@ -121,12 +121,21 @@
               required
             />
           </div>
-
           <div class="mb-3">
-            <label for="campoDestacada" class="form-label">Destacada</label>
+            <label for="campoCategoria" class="form-label">Categoria</label>
+            <select class="form-select" id="campoCategoria" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="Accion">Accion</option>
+              <option value="Amor">Amor</option>
+              <option value="Ficcion">Ficcion</option>
+              <option value="Infantil">Infantil</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="campoDescription" class="form-label">Descripcion</label>
             <textarea
               class="form-control"
-              id="campoDestacada"
+              id="campoDescription"
               rows="3"
               maxlength="50"
               required
@@ -139,32 +148,28 @@
               type="text"
               class="form-control"
               id="campoSrcImage"
-              placeholder="2"
-              maxlength="3"
+              placeholder="Url de la imagen"
+              maxlength="50"
               required
             />
           </div>
 
           <div class="mb-3">
-            <label for="campoDescription" class="form-label">Descripcion</label>
-            <input
-              type="text"
-              class="form-control"
-              id="campoDescription"
-              placeholder="http://125.00"
-              required
-            />
+            <label for="campoDestacada" class="form-label">Destacada</label>
+            <select class="form-select" id="campoDestacada" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="true">Si</option>
+              <option value="false">NO</option>
+            </select>
           </div>
           
           <div class="mb-3">
-            <label for="campoReleased" class="form-label">Released</label>
-            <input
-              type="text"
-              class="form-control"
-              id="campoReleased"
-              placeholder="http://125.00"
-              required
-            />
+            <label for="campoReleased" class="form-label">Publicada</label>
+            <select class="form-select" id="campoReleased" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="true">Si</option>
+              <option value="false">No</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="campoTrailerLink" class="form-label">Trailer Link</label>
@@ -299,6 +304,6 @@
     </footer>
 
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/contacto.js" type="module"></script>
+    <script src="/js/admin.js" type="module"></script>
   </body>
 </html>
