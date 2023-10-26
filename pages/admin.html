@@ -153,7 +153,6 @@
               required
             />
           </div>
-
           <div class="mb-3">
             <label for="campoDestacada" class="form-label">Destacada</label>
             <select class="form-select" id="campoDestacada" required>
@@ -162,7 +161,7 @@
               <option value="false">NO</option>
             </select>
           </div>
-          
+
           <div class="mb-3">
             <label for="campoReleased" class="form-label">Publicada</label>
             <select class="form-select" id="campoReleased" required>
@@ -171,16 +170,18 @@
               <option value="false">No</option>
             </select>
           </div>
+
           <div class="mb-3">
             <label for="campoTrailerLink" class="form-label">Trailer Link</label>
             <input
               type="text"
               class="form-control"
               id="campoTrailerLink"
-              placeholder="http://125.00"
+              placeholder="url del trailer"
               required
             />
           </div>
+          
 
           <button type="submit" class="btn btn-primary">guardar</button>
         </form>
@@ -207,10 +208,11 @@
             <tr>
               <th scope="col">Cod.</th>
               <th scope="col">Nombre</th>
+              <th scope="col">Categoria</th>
               <th scope="col">Destacada</th>
               <th scope="col">SrcImage</th>
               <th scope="col">Descripcion</th>
-              <th scope="col">Released</th>
+              <th scope="col">Publicada</th>
               <th scope="col">Trailer Link</th>
               <th scope="col">Acciones</th>
             </tr>
