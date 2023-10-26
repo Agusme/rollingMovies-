@@ -115,7 +115,7 @@
 }
 .btn-play :hover{
   position: absolute;
-  bottom: 55%;
+  bottom: 50%;
   right: 50%;
   z-index: 3;
   box-shadow: 15px 15px 28px rgb(31, 15, 56);
