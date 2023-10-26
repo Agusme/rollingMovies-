@@ -1,0 +1,87 @@
+[33mcommit 22faa11a9475f85ca0e455023e06f6d80fd7318d[m[33m ([m[1;36mHEAD -> [m[1;32mdevelopment[m[33m)[m
+Merge: a848b54 7d62022
+Author: Agustina Mena <agusmena60@gmail.com>
+Date:   Thu Oct 26 14:37:56 2023 -0300
+
+    Merge branch 'main' into development
+
+[33mcommit 7d62022fa3933443477d3b32828c6b6f4eabd447[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Thu Oct 26 14:19:38 2023 -0300
+
+    readme
+
+[33mcommit a848b54047ce69ac8d7c35d4d6822f4725e91835[m[33m ([m[1;31morigin/development[m[33m)[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Thu Oct 26 14:10:18 2023 -0300
+
+    changes page admin
+
+[33mcommit b8f9c40c48b45e528d812a0cdd6e799351ce9a39[m
+Author: Agustina Mena <agusmena60@gmail.com>
+Date:   Thu Oct 26 14:08:04 2023 -0300
+
+    Create README.md
+
+[33mcommit baf4d83720d73b21e1a1708062374e73e54117ae[m
+Merge: 19a029a 5b58e91
+Author: Agustina Mena <agusmena60@gmail.com>
+Date:   Thu Oct 26 14:06:25 2023 -0300
+
+    Merge pull request #1 from Agusme/development
+    
+    Development
+
+[33mcommit 5b58e9146c5deaaea456d72610a395cd7c6aaa13[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sun Oct 22 16:39:56 2023 -0300
+
+    validaciones admin
+
+[33mcommit d21a27246af2b87c64ecfc101b9be37c7dd4d51b[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sat Oct 21 18:23:01 2023 -0300
+
+    pag admin
+
+[33mcommit ab43838d3c89a6b8c0fea9179e6b316e7cc9284c[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sat Oct 21 17:34:41 2023 -0300
+
+    cambios
+
+[33mcommit cffbb246cb11e5c09cd1eca176d73b689e660443[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sat Oct 21 17:29:13 2023 -0300
+
+    add changes
+
+[33mcommit 0fd966854b347ef237c3136143c2520cf7c2708f[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sat Oct 21 16:48:15 2023 -0300
+
+    pelicula destacada
+
+[33mcommit d6bfcfc7b3281146b7670e4d04815bc189063bff[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Sat Oct 21 15:23:48 2023 -0300
+
+    add changes
+
+[33mcommit e2a007e79a19062956b4f602a4da75d54ece1aa4[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Thu Oct 19 16:27:18 2023 -0300
+
+    login
+
+[33mcommit b57f22e262714fba02b07f8afc2bc3e1536112d1[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Thu Oct 19 09:59:11 2023 -0300
+
+    detallePelicula
+
+[33mcommit 19a029ad9e2f630a4c10a833f0028cab791af3c4[m
+Author: agusm <agusmena60@gmail.com>
+Date:   Thu Oct 19 09:32:44 2023 -0300
+
+    first commit
