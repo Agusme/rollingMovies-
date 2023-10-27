@@ -103,7 +103,7 @@
               class="form-control"
               id="campoCodigo"
               placeholder="123"
-              maxlength="5"
+              maxlength="30"
               required
             />
 
@@ -132,13 +132,13 @@
           <div class="mb-3">
             <label for="campoDescription" class="form-label">Descripcion</label>
             <textarea
-              class="form-control"
-              id="campoDescription"
-              rows="3"
-              maxlength="50"
-              required
-            >
-            </textarea>
+            class="form-control"
+            id="campoDescription"
+            rows="3"
+            placeholder="Describe la pelicula"
+            maxlength="50"
+            required
+          ></textarea>
           </div>
           <div class="mb-3">
             <label for="campoSrcImage" class="form-label">SrcImage</label>
@@ -211,9 +211,11 @@
               <th scope="col">Released</th>
               <th scope="col">Trailer Link</th>
               <th scope="col">Acciones</th>
+              <th scope="col"></th>
+
             </tr>
           </thead>
-          <tbody id="tablaProductos">
+          <tbody id="tablaPeliculas">
               
           </tbody>
         </table>

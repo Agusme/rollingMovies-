@@ -1,11 +1,19 @@
-import { campoRequerido, validarNombre, validarURL, login, logout} from "./helpers.js";
-document.addEventListener("DOMContentLoaded", ()=>{
-  login()
+import { Pelicula } from "./clasePelicula.js";
+import {
+  campoRequerido,
+  validarNombre,
+  validarURL,
+  validarGeneral,
+  login,
+  logout,
+} from "./helpers.js";
+document.addEventListener("DOMContentLoaded", () => {
+  login();
 });
 
-let logoutButton = document.getElementById("logOut"); 
-logoutButton.addEventListener("click", ()=>{
-  logout()
+let logoutButton = document.getElementById("logOut");
+logoutButton.addEventListener("click", () => {
+  logout();
 });
 
 let campoCodigo = document.getElementById("campoCodigo");
@@ -17,9 +25,13 @@ let campoDestacada = document.getElementById("campoDestacada");
 let campoReleased = document.getElementById("campoReleased");
 let campoTrailerLink = document.getElementById("campoTrailerLink");
 let formPeliculas = document.getElementById("formPeliculas");
+let peliculaExistente = false;
+
+let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
+
 
 campoCodigo.addEventListener("blur", () => {
-  campoRequerido(campoCodigo, 1, 5);
+  campoRequerido(campoCodigo, 1, 30);
 });
 
 campoNombre.addEventListener("blur", () => {
@@ -44,3 +56,190 @@ campoReleased.addEventListener("blur", () => {
 campoTrailerLink.addEventListener("blur", () => {
   validarURL(campoTrailerLink);
 });
+formPeliculas.addEventListener("submit", guardarPelicula);
+
+//crud
+cargaInicial()
+function guardarPelicula(e) {
+  e.preventDefault();
+  if (
+    validarGeneral(
+      campoCodigo,
+      campoNombre,
+      campoCategoria,
+      campoDescription,
+      campoSrcImage,
+      campoDestacada,
+      campoReleased,
+      campoTrailerLink
+    )
+  ) {
+    if (!peliculaExistente) {
+      crearPelicula();
+    } else {
+      modificarPelicula();
+    }
+  }
+}
+function crearCodigoUnico() {
+  let codigoUnico = Date.now().toString();
+  return codigoUnico;
+}
+function crearPelicula() {
+  let codUnico = crearCodigoUnico();
+  let peliculaNueva = new Pelicula(
+    codUnico,
+    campoNombre.value,
+    campoCategoria.value,
+    campoDescription.value,
+    campoSrcImage.value,
+    campoDestacada.value,
+    campoReleased.value,
+    campoTrailerLink.value
+  );
+
+  console.log(peliculaNueva);
+  listaPeliculas.push(peliculaNueva);
+  console.log(listaPeliculas);
+  limpiarFormulario();
+  guardarLocalStorage();
+  Swal.fire("Pelicula creada!", "Su producto fue creado con exito", "success");
+
+  crearFila(peliculaNueva);
+}
+function limpiarFormulario() {
+  formPeliculas.reset();
+  campoCodigo.className = "form-control";
+  campoNombre.className = "form-control";
+  campoCategoria.className = "form-control";
+  campoDescription.className = "form-control";
+  campoSrcImage.className = "form-control";
+  campoDestacada.className = "form-control";
+  campoReleased.className = "form-control";
+  campoTrailerLink.className = "form-control";
+
+  peliculaExistente = false;
+}
+function guardarLocalStorage() {
+  localStorage.setItem("arrayPeliculas", JSON.stringify(listaPeliculas));
+}
+function crearFila(pelicula) {
+  let tablaPeliculas = document.getElementById("tablaPeliculas");
+  //usando el operador de asignacion de adicion vamos a concatenar al contenido del tbody una fila
+  tablaPeliculas.innerHTML += `
+<tr>
+<td scope="col">${pelicula.codigo} </td>
+<td scope="col">${pelicula.nombre} </td>
+<td scope="col">${pelicula.description} </td>
+<td scope="col">${pelicula.srcImage} </td>
+<td scope="col">${pelicula.destacada} </td>
+<td scope="col">${pelicula.released} </td>
+<td scope="col">${pelicula.trailerLink} </td>
+
+
+<td>        <button class="btn btn-warning mb-3" onclick="prepararEdicionPelicula('${pelicula.codigo}')"> Edicion</button>
+</td> <td>   <button class="btn btn-danger mb-3" onclick="borrarPelicula('${pelicula.codigo}')"> Eliminar</button>
+</td>
+</tr>
+`;
+}
+function cargaInicial() {
+  if (listaPeliculas.length > 0) {
+    listaPeliculas.forEach((itemPelicula) => crearFila(itemPelicula));
+  }
+}
+window.prepararEdicionPelicula = function (codigo) {
+  console.log("desde editar");
+  console.log(codigo);
+  // Buscar la película en el array de películas
+  let peliculaBuscada = listaPeliculas.find(
+    (itemPelicula) => itemPelicula.codigo === codigo
+  );
+
+  campoCodigo.value = peliculaBuscada.codigo;
+  campoNombre.value = peliculaBuscada.nombre;
+  campoCategoria.value = peliculaBuscada.categoria;
+  campoDescription.value = peliculaBuscada.description;
+  campoSrcImage.value = peliculaBuscada.srcImage;
+  campoDestacada.value = peliculaBuscada.destacada;
+  campoReleased.value = peliculaBuscada.released;
+  campoTrailerLink.value = peliculaBuscada.trailerLink;
+
+  peliculaExistente = true;
+};
+
+function modificarPelicula() {
+  Swal.fire({
+    title: "¿Seguro que deseas modificar esta película?",
+    text: "Puedes volver a editar esta película",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      console.log("desde modificar");
+      // Encontrar el índice al que quiero modificar dentro del array de películas
+      let indicePelicula = listaPeliculas.findIndex(
+        (itemPelicula) => itemPelicula.codigo === campoCodigo.value
+      );
+      console.log(indicePelicula);
+      listaPeliculas[indicePelicula].nombre = campoNombre.value;
+      listaPeliculas[indicePelicula].categoria = campoCategoria.value;
+      listaPeliculas[indicePelicula].description = campoDescription.value;
+      listaPeliculas[indicePelicula].srcImage = campoSrcImage.value;
+      listaPeliculas[indicePelicula].destacada = campoDestacada.value;
+      listaPeliculas[indicePelicula].released = campoReleased.value;
+      listaPeliculas[indicePelicula].trailerLink = campoTrailerLink.value;
+
+      guardarLocalStorage();
+      borrarTabla();
+      cargaInicial();
+      Swal.fire(
+        "Película modificada",
+        "La película fue modificada con éxito",
+        "success"
+      );
+      limpiarFormulario();
+    }
+  });
+}
+
+
+
+function borrarTabla() {
+  let tablaPeliculas = document.getElementById("tablaPeliculas");
+  tablaPeliculas.innerHTML = "";
+}
+window.borrarPelicula = function (codigo) {
+  Swal.fire({
+    title: "Seguro que deseas eliminar este producto?",
+    text: "La accion no se puede revertir!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar!",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+     
+      let nuevaListaPeliculas = listaPeliculas.filter(
+        (itemPelicula) => itemPelicula.codigo !== codigo
+      );
+      console.log(nuevaListaPeliculas);
+    
+      listaPeliculas = nuevaListaPeliculas;
+      guardarLocalStorage();
+      borrarTabla();
+      cargaInicial();
+      Swal.fire(
+        "Producto Eliminado!",
+        "Su producto fue eliminado con exito",
+        "success"
+      );
+    }
+  });
+};

@@ -83,12 +83,12 @@ export const validarGeneral = (
 ) => {
     let alert= document.getElementById("mensajeAlert")
      if (
-    campoRequerido(campoCodigo) &&
+    campoRequerido(campoCodigo,1,40) &&
     validarNombre(campoNombre) &&
-    campoRequerido(campoCategoria) &&
-    campoRequerido(campoDescription) &&
+    campoRequerido(campoCategoria,1,14) &&
+    campoRequerido(campoDescription, 1,45) &&
     validarURL(campoSrcImage) &&
-    campoRequerido(campoReleased) &&
+    campoRequerido(campoReleased, 1,14) &&
     validarURL(campoTrailerLink) 
   ) {
     alert.className = "alert alert-danger my-3 d-none"
