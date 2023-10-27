@@ -24,4 +24,23 @@ let logoutButton = document.getElementById("logOut");
 logoutButton.addEventListener("click", () => {
   logout();
 });
-///
+
+let campoCodigo = document.getElementById("campoCodigo")
+let campoNombre = document.getElementById("campoNombre")
+let campoCategoria = document.getElementById("campoCategoria")
+let campoDescription = document.getElementById("campoDescription")
+let campoSrcImage = document.getElementById("campoSrcImage")
+let campoDestacada = document.getElementById("campoDestacada")
+let campoReleased = document.getElementById("campoReleased")
+let campoTrailerLink = document.getElementById("campoTrailerLink")
+
+console.log(campoNombre)
+console.log(campoCodigo)
+console.log(campoCategoria)
+console.log(campoDescription)
+console.log(campoSrcImage)
+console.log(campoDestacada)
+console.log(campoReleased)
+console.log(campoTrailerLink)
+
+
