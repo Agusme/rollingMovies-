@@ -289,17 +289,24 @@ const peliculas = [
     trailerLink: "https://www.youtube.com/watch?v=P5ieIbInFpg",
   },
 ];
-guardarPeliLocalStorage();
-
-function guardarPeliLocalStorage() {
-  localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
+function guardarLocalStorage() {
+  // Verificar si ya existen datos en el almacenamiento local
+  let peliculasGuardadas = localStorage.getItem("arrayPeliculas");
+  
+  if (peliculasGuardadas) {
+    // Si existen datos, combina los nuevos datos con los existentes
+    let peliculas = JSON.parse(peliculasGuardadas);
+    peliculas = peliculas.concat(listaPeliculas);
+    
+    // Luego, guarda los datos combinados en el almacenamiento local
+    localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
+  } else {
+    // Si no existen datos previos, guarda los nuevos datos directamente
+    localStorage.setItem("arrayPeliculas", JSON.stringify(listaPeliculas));
+  }
 }
 
-function cargarPeliculasPorCategoria(
-  categoria,
-  elementoActivo,
-  elementoCarrusel
-) {
+function cargarPeliculasPorCategoria(categoria, elementoActivo, elementoCarrusel) {
   let elementosAgregadosAlActivo = 0;
 
   for (let i = 0; i < listaPeliculas.length; i++) {
@@ -308,9 +315,8 @@ function cargarPeliculasPorCategoria(
     if (
       elementosAgregadosAlActivo < 5 &&
       pelicula.released &&
-      pelicula.categoria.some(
-        (cat) => cat.toLowerCase() === categoria.toLowerCase()
-      )
+      Array.isArray(pelicula.categoria) &&
+      pelicula.categoria.some((cat) => cat.toLowerCase() === categoria.toLowerCase())
     ) {
       elementoActivo.innerHTML += `
         <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
@@ -320,9 +326,8 @@ function cargarPeliculasPorCategoria(
       elementosAgregadosAlActivo++;
     } else if (
       pelicula.released &&
-      pelicula.categoria.some(
-        (cat) => cat.toLowerCase() === categoria.toLowerCase()
-      )
+      Array.isArray(pelicula.categoria) &&  
+      pelicula.categoria.some((cat) => cat.toLowerCase() === categoria.toLowerCase())
     ) {
       elementoCarrusel.innerHTML += `
         <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
@@ -333,28 +338,31 @@ function cargarPeliculasPorCategoria(
   }
 }
 
-function cargarCarruseles() {
-  cargarPeliculasPorCategoria(
-    "ficcion",
-    document.getElementById("carouselActive"),
-    document.getElementById("carrusel")
-  );
-  cargarPeliculasPorCategoria(
-    "Infantil",
-    document.getElementById("carouselActiveInfantil"),
-    document.getElementById("carruselInfantil")
-  );
-  cargarPeliculasPorCategoria(
-    "romantico",
-    document.getElementById("carouselActiveRomantico"),
-    document.getElementById("carruselRomantico")
-  );
-  cargarPeliculasPorCategoria(
-    "accion",
-    document.getElementById("carouselActiveAccion"),
-    document.getElementById("carruselAccion")
-  );
-}
+
+cargarPeliculasPorCategoria(
+  "ficcion",
+  document.getElementById("carouselActive"),
+  document.getElementById("carrusel")
+);
+
+cargarPeliculasPorCategoria(
+  "infantil",
+  document.getElementById("carouselActiveInfantil"),
+  document.getElementById("carruselInfantil")
+);
+
+cargarPeliculasPorCategoria(
+  "romantico",
+  document.getElementById("carouselActiveRomantico"),
+  document.getElementById("carruselRomantico")
+);
+
+cargarPeliculasPorCategoria(
+  "accion",
+  document.getElementById("carouselActiveAccion"),
+  document.getElementById("carruselAccion")
+);
+
 
 cargarCarruseles();
 
