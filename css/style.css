@@ -126,4 +126,11 @@
   .btn-volver {
     display: none;
   }
+  .img-destacada{
+    height: 100vh;
+    background-repeat: repeat;
+  
+  
+  
+  }
 }
