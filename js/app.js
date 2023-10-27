@@ -1,7 +1,8 @@
 import { login, logout } from "./helpers.js";
 
-let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
 let logoutButton = document.getElementById("logOut");
+let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
+
 
 document.addEventListener("DOMContentLoaded", () => {
   login();
@@ -289,22 +290,26 @@ const peliculas = [
     trailerLink: "https://www.youtube.com/watch?v=P5ieIbInFpg",
   },
 ];
-function guardarLocalStorage() {
-  // Verificar si ya existen datos en el almacenamiento local
+ localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas))
+ function guardarLocalStorage() {
   let peliculasGuardadas = localStorage.getItem("arrayPeliculas");
-  
-  if (peliculasGuardadas) {
-    // Si existen datos, combina los nuevos datos con los existentes
-    let peliculas = JSON.parse(peliculasGuardadas);
-    peliculas = peliculas.concat(listaPeliculas);
-    
-    // Luego, guarda los datos combinados en el almacenamiento local
-    localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
-  } else {
-    // Si no existen datos previos, guarda los nuevos datos directamente
-    localStorage.setItem("arrayPeliculas", JSON.stringify(listaPeliculas));
+  let peliculas = peliculasGuardadas ? JSON.parse(peliculasGuardadas) : [];
+
+  for (let i = 0; i < listaPeliculas.length; i++) {
+    const nuevaPelicula = listaPeliculas[i];
+    const alreadyExists = peliculas.some((p) => p.codigo === nuevaPelicula.codigo);
+
+    if (!alreadyExists) {
+      peliculas.push(nuevaPelicula);
+    }
   }
+
+  localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
 }
+
+// Call guardarLocalStorage to merge and store data
+guardarLocalStorage();
+
 
 function cargarPeliculasPorCategoria(categoria, elementoActivo, elementoCarrusel) {
   let elementosAgregadosAlActivo = 0;
@@ -364,8 +369,7 @@ cargarPeliculasPorCategoria(
 );
 
 
-cargarCarruseles();
-
+/* 
 let botoncambiar = document.getElementById("botoncambiar");
 
 const peliculaDestada = () => {
@@ -405,3 +409,5 @@ const peliculaDestada = () => {
 };
 
 botoncambiar.addEventListener("click", peliculaDestada);
+ */
+console.log(listaPeliculas)
