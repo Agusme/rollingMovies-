@@ -1,4 +1,4 @@
-import { login, logout } from "./admin.js";
+import { login, logout } from "./helpers.js";
 
 function getCodigoPeliculaFromHash() {
     const hash = location.hash;

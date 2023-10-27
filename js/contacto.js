@@ -1,5 +1,4 @@
-import { campoRequerido, validarMail, validarNombre } from "./helpers.js";
-import { login, logout } from "./admin.js";
+import { campoRequerido, validarMail, validarNombre, login, logout } from "./helpers.js";
 
 
 let nombre = document.getElementById("nombre")

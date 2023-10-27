@@ -1,4 +1,4 @@
-import { login, logout } from "./admin.js";
+import { login, logout } from "./helpers.js";
 
 let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
 let logoutButton = document.getElementById("logOut"); 
