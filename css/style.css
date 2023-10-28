@@ -98,22 +98,18 @@
   height: 75vh;
   background-repeat: repeat;
 }
-.btn-play{
+.btn-play {
   position: absolute;
-  bottom: 55%;
-  right: 50%;
+  bottom: 60%;
+  right: 45%;
   z-index: 3;
-  
+  border-radius: 50%; 
 }
 .btn-play :hover{
   position: absolute;
   bottom: 50%;
   right: 50%;
   z-index: 3;
-  box-shadow: 15px 15px 28px rgb(31, 15, 56);
-border-radius: 50%;
-  transition: all 0.5s ease;
-}
 
 
 @media all and (max-width: 480px) {
@@ -131,5 +127,6 @@ border-radius: 50%;
 @media all and (min-width: 480px) and (max-width: 768px) {
   .w-logo {
     width: 25vw;
+
   }
 }
