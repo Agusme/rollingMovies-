@@ -40,6 +40,7 @@
 .img-carrusel {
   width: 13vw;
 }
+
 .efectoFoto:hover {
   position: relative;
   top: 2px;
@@ -125,6 +126,7 @@ border-radius: 50%;
   .img-carrusel {
     width: 15vw;
   }
+ 
 }
 @media all and (min-width: 480px) and (max-width: 768px) {
   .w-logo {

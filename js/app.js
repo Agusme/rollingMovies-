@@ -373,7 +373,7 @@ function cargarPeliculasPorCategoria(
       pelicula.categoria.toLowerCase() === categoria.toLowerCase()
     ) {
       elementoActivo.innerHTML += `
-       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
+       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="text-decoration-none">
          <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
        </a>
      `;
@@ -383,7 +383,7 @@ function cargarPeliculasPorCategoria(
       pelicula.categoria.toLowerCase() === categoria.toLowerCase()
     ) {
       elementoCarrusel.innerHTML += `
-       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
+       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="text-decoration-none">
          <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
        </a>
      `;
@@ -428,6 +428,7 @@ const peliculaDestada = () => {
  <a
    href=${peliculaEstrella.trailerLink}
    target="_blank"
+
  >
    <div class="btn-play">
      <i

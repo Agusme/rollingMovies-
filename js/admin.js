@@ -26,14 +26,9 @@ let campoReleased = document.getElementById("campoReleased");
 let campoTrailerLink = document.getElementById("campoTrailerLink");
 let formPeliculas = document.getElementById("formPeliculas");
 let peliculaExistente = false;
-// Verificar si las películas ya existen en el Local Storage
-if (!localStorage.getItem("arrayPeliculas")) {
-  // Si no existen, guárdalas
-  localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
-}
+
 
 let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
-
 
 campoCodigo.addEventListener("blur", () => {
   campoRequerido(campoCodigo, 1, 30);
@@ -63,7 +58,7 @@ campoTrailerLink.addEventListener("blur", () => {
 });
 formPeliculas.addEventListener("submit", guardarPelicula);
 
-cargaInicial()
+cargaInicial();
 function guardarPelicula(e) {
   e.preventDefault();
   if (
@@ -84,7 +79,7 @@ function guardarPelicula(e) {
     } else {
       modificarPelicula();
     }
-    guardarLocalStorage()
+    guardarLocalStorage();
   }
 }
 function crearCodigoUnico() {
@@ -131,7 +126,6 @@ function guardarLocalStorage() {
 }
 function crearFila(pelicula) {
   let tablaPeliculas = document.getElementById("tablaPeliculas");
-  //usando el operador de asignacion de adicion vamos a concatenar al contenido del tbody una fila
   tablaPeliculas.innerHTML += `
 <tr>
 <td scope="col">${pelicula.codigo} </td>
@@ -155,14 +149,11 @@ function cargaInicial() {
   }
 }
 window.prepararEdicionPelicula = function (codigo) {
-  console.log("desde editar");
-  console.log(codigo);
-  // Buscar la película en el array de películas
+  
   let peliculaBuscada = listaPeliculas.find(
     (itemPelicula) => itemPelicula.codigo === codigo
   );
 
-  console.log(peliculaBuscada);
   campoCodigo.value = peliculaBuscada.codigo;
   campoNombre.value = peliculaBuscada.nombre;
   campoCategoria.value = peliculaBuscada.categoria;
@@ -187,8 +178,6 @@ function modificarPelicula() {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      console.log("desde modificar");
-      // Encontrar el índice al que quiero modificar dentro del array de películas
       let indicePelicula = listaPeliculas.findIndex(
         (itemPelicula) => itemPelicula.codigo === campoCodigo.value
       );
@@ -214,8 +203,6 @@ function modificarPelicula() {
   });
 }
 
-
-
 function borrarTabla() {
   let tablaPeliculas = document.getElementById("tablaPeliculas");
   tablaPeliculas.innerHTML = "";
@@ -232,12 +219,10 @@ window.borrarPelicula = function (codigo) {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-     
       let nuevaListaPeliculas = listaPeliculas.filter(
         (itemPelicula) => itemPelicula.codigo !== codigo
       );
-      console.log(nuevaListaPeliculas);
-    
+
       listaPeliculas = nuevaListaPeliculas;
       guardarLocalStorage();
       borrarTabla();

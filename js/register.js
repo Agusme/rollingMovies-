@@ -18,7 +18,6 @@ campoNombre.addEventListener("blur", () => {
   });
   
   campoCorreoElectronico.addEventListener("blur", () => {
-    console.log("desde blur");
     validarMail(campoCorreoElectronico)});
   
 
