@@ -26,6 +26,11 @@ let campoReleased = document.getElementById("campoReleased");
 let campoTrailerLink = document.getElementById("campoTrailerLink");
 let formPeliculas = document.getElementById("formPeliculas");
 let peliculaExistente = false;
+// Verificar si las películas ya existen en el Local Storage
+if (!localStorage.getItem("arrayPeliculas")) {
+  // Si no existen, guárdalas
+  localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
+}
 
 let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
 
@@ -58,7 +63,6 @@ campoTrailerLink.addEventListener("blur", () => {
 });
 formPeliculas.addEventListener("submit", guardarPelicula);
 
-//crud
 cargaInicial()
 function guardarPelicula(e) {
   e.preventDefault();
@@ -74,11 +78,13 @@ function guardarPelicula(e) {
       campoTrailerLink
     )
   ) {
+    console.log("los datos son correctos para enviar");
     if (!peliculaExistente) {
       crearPelicula();
     } else {
       modificarPelicula();
     }
+    guardarLocalStorage()
   }
 }
 function crearCodigoUnico() {
@@ -156,6 +162,7 @@ window.prepararEdicionPelicula = function (codigo) {
     (itemPelicula) => itemPelicula.codigo === codigo
   );
 
+  console.log(peliculaBuscada);
   campoCodigo.value = peliculaBuscada.codigo;
   campoNombre.value = peliculaBuscada.nombre;
   campoCategoria.value = peliculaBuscada.categoria;

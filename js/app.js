@@ -3,7 +3,6 @@ import { login, logout } from "./helpers.js";
 let logoutButton = document.getElementById("logOut");
 let listaPeliculas = JSON.parse(localStorage.getItem("arrayPeliculas")) || [];
 
-
 document.addEventListener("DOMContentLoaded", () => {
   login();
 });
@@ -16,33 +15,32 @@ const peliculas = [
   {
     codigo: "01",
     nombre: "Advengers",
-    categoria: ["ficcion", "superheroes"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
     description:
-    "Nick Fury, de S.H.I.E.L.D., forma un equipo para detener una amenaza global inesperada."
-    ,
+      "Nick Fury, de S.H.I.E.L.D., forma un equipo para detener una amenaza global inesperada.",
     released: true,
     trailerLink: "https://www.youtube.com/watch?v=PyakRSni-c0",
   },
   {
     codigo: "02",
     nombre: "Matrix",
-    categoria: ["ficcion", "animada"],
-    destacada: true,
+    categoria: "ficcion",
+    destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
     description:
       "La serie narra las aventuras de Ariel como una sirena antes de los eventos de la película.",
-    released: true,
+    released: false,
     trailerLink:
       "https://www.youtube.com/watch?v=OM0tSTEQCQA&pp=ygUOdHJhaWxlciBtYXRyaXg%3D",
   },
   {
     codigo: "03",
     nombre: "Star Wars",
-    categoria: ["ficcion", "espacial"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
@@ -54,7 +52,7 @@ const peliculas = [
   {
     codigo: "04",
     nombre: "Avatar",
-    categoria: ["ficcion", "ciencia ficcion"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
@@ -66,7 +64,7 @@ const peliculas = [
   {
     codigo: "05",
     nombre: "Terminators",
-    categoria: ["ficcion", "accion"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/7LV3sg3bJOGFD6J0gn7Wt1IL5SK.jpg",
@@ -78,7 +76,7 @@ const peliculas = [
   {
     codigo: "06",
     nombre: "La Sirenita",
-    categoria: ["infantil"],
+    categoria: "infantil",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/32Tb6HZc8yAWqHesMSMnMozr6pi.jpg",
@@ -90,7 +88,7 @@ const peliculas = [
   {
     codigo: "07",
     nombre: "Jurassic",
-    categoria: ["ficcion", "aventura"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
@@ -102,7 +100,7 @@ const peliculas = [
   {
     codigo: "08",
     nombre: "E.T",
-    categoria: ["ficcion", "romantica"],
+    categoria: "ficcion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg",
@@ -113,7 +111,7 @@ const peliculas = [
   {
     codigo: "09",
     nombre: "Interstellar",
-    categoria: ["ficcion", "accion"],
+    categoria: "accion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
@@ -125,8 +123,7 @@ const peliculas = [
   {
     codigo: "10",
     nombre: "Buscando a Nemo",
-    categoria: ["infantil", "animada"],
-    destacada: false,
+    categoria: "infantil",
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ggQ6o8X5984OCh3kZi2UIJQJY5y.jpg",
     description: "super héroes",
@@ -136,8 +133,7 @@ const peliculas = [
   {
     codigo: "11",
     nombre: "La era del hielo",
-    categoria: ["infantil", "aventura"],
-    destacada: false,
+    categoria: "infantil",
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/dfp1BZF7FxbBUyzHvMOI9t8NWDD.jpg",
     description:
@@ -148,7 +144,7 @@ const peliculas = [
   {
     codigo: "12",
     nombre: "Frozen",
-    categoria: ["infantil", "animada"],
+    categoria: "infantil",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/kgwjIb2JDHRhNk13lmSxiClFjVk.jpg",
@@ -161,7 +157,7 @@ const peliculas = [
     codigo: "13",
     nombre: "Cars",
     destacada: false,
-    categoria: ["infantil", "animada"],
+    categoria: "infantil",
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/abW5AzHDaIK1n9C36VdAeOwORRA.jpg",
     description:
@@ -172,7 +168,7 @@ const peliculas = [
   {
     codigo: "14",
     nombre: "Elemental",
-    categoria: ["infantil", "animada"],
+    categoria: "infantil",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg",
@@ -184,7 +180,7 @@ const peliculas = [
   {
     codigo: "15",
     nombre: "A Star is Born",
-    categoria: ["romantico", "musical"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
@@ -196,7 +192,7 @@ const peliculas = [
   {
     codigo: "16",
     nombre: "La La Land",
-    categoria: ["romantico", "musical"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
@@ -208,7 +204,7 @@ const peliculas = [
   {
     codigo: "17",
     nombre: "To All the Boys I've Loved Before",
-    categoria: ["romantico", "comedia"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/hKHZhUbIyUAjcSrqJThFGYIR6kI.jpg",
@@ -220,7 +216,7 @@ const peliculas = [
   {
     codigo: "18",
     nombre: "The Fault in Our Stars",
-    categoria: ["romantico", "drama", "accion"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ep7dF4QR4Mm39LI958V0XbwE0hK.jpg",
@@ -232,7 +228,7 @@ const peliculas = [
   {
     codigo: "19",
     nombre: "Crazy Rich Asians",
-    categoria: ["romantico", "comedia"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/1XxL4LJ5WHdrcYcihEZUCgNCpAW.jpg",
@@ -244,7 +240,7 @@ const peliculas = [
   {
     codigo: "20",
     nombre: "Pretty Woman",
-    categoria: ["romantico", "comedia"],
+    categoria: "romantico",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iKaKr8aUqOy1aojENu5XuwBI8Uj.jpg",
@@ -256,7 +252,7 @@ const peliculas = [
   {
     codigo: "21",
     nombre: "The Continental",
-    categoria: ["accion", "romantico"],
+    categoria: "accion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/v1YEOdGptCyNxnc4mJSYNd4cE8E.jpg",
@@ -268,7 +264,7 @@ const peliculas = [
   {
     codigo: "22",
     nombre: "Kill Bill: Vol. 1",
-    categoria: ["accion", "romantico"],
+    categoria: "accion",
     destacada: false,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
@@ -280,7 +276,7 @@ const peliculas = [
   {
     codigo: "23",
     nombre: "Gladiator",
-    categoria: ["accion", "ficcion"],
+    categoria: "accion",
     destacada: true,
     srcImage:
       "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
@@ -289,15 +285,67 @@ const peliculas = [
     released: true,
     trailerLink: "https://www.youtube.com/watch?v=P5ieIbInFpg",
   },
+  {
+    codigo: "24",
+    nombre: "Accion",
+    categoria: "accion",
+    destacada: true,
+    srcImage:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xTIohs08xedCORLIgOCDOZSpwVy.jpg",
+    description:
+      " Sigue la vida de Peter Dragon, un egocéntrico productor de cine de Hollywood que ha construido su carrera en base a los tres pilares de la industria del espectáculo: el nepotismo y la deshonestidad.",
+    released: true,
+    trailerLink: "https://www.youtube.com/watch?v=5rp4hPVbW5U",
+  },
+  {
+    codigo: "25",
+    nombre: "Hangover",
+    categoria: "accion",
+    destacada: true,
+    srcImage:
+      "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uluhlXubGu1VxU63X9VHCLWDAYP.jpg",
+    description:
+      "Tras una fiesta de despedida de soltero, tres amigos buscan a su amigo desaparecido antes de una boda.",
+    released: true,
+    trailerLink:
+      "https://www.youtube.com/watch?v=wnNgGp1KVWQ&pp=ygUVdHJhaWxlIHF1ZSBwYXNvIGF5ZXIg",
+  },
+  {
+    codigo: "26",
+    nombre: "Hangover II",
+    categoria: "accion",
+    destacada: true,
+    srcImage:
+      "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/jrP9zmdSUpOzzUXpEqPqg3dryUr.jpg",
+    description:
+      "El equipo de Resacón en Tailandia va a Tailandia para la boda de Stu, pero las cosas no salen según lo planeado.",
+    released: true,
+    trailerLink:
+      "https://www.youtube.com/watch?v=AbVRMX4E0bU&pp=ygUcdHJhaWxlIHF1ZSBwYXNvIGF5ZXIgUEFSVEUgMg%3D%3D",
+  },
+  {
+    codigo: "27",
+    nombre: "Hangover III",
+    categoria: "accion",
+    destacada: true,
+    srcImage:
+      "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/vtxuPWkdllLNLVyGjKYa267ntuH.jpg",
+    description:
+      "Esta vez, no hay boda. Ni despedida de soltero. ¿Qué podría salir mal, verdad? Pero cuando el grupo de amigos se embarca, todo está en juego.",
+    released: true,
+    trailerLink: "https://www.youtube.com/watch?v=bFfsk98QPto",
+  },
 ];
- localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas))
- function guardarLocalStorage() {
+localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
+function guardarLocalStorage() {
   let peliculasGuardadas = localStorage.getItem("arrayPeliculas");
   let peliculas = peliculasGuardadas ? JSON.parse(peliculasGuardadas) : [];
 
   for (let i = 0; i < listaPeliculas.length; i++) {
     const nuevaPelicula = listaPeliculas[i];
-    const alreadyExists = peliculas.some((p) => p.codigo === nuevaPelicula.codigo);
+    const alreadyExists = peliculas.some(
+      (p) => p.codigo === nuevaPelicula.codigo
+    );
 
     if (!alreadyExists) {
       peliculas.push(nuevaPelicula);
@@ -307,11 +355,13 @@ const peliculas = [
   localStorage.setItem("arrayPeliculas", JSON.stringify(peliculas));
 }
 
-// Call guardarLocalStorage to merge and store data
 guardarLocalStorage();
 
-
-function cargarPeliculasPorCategoria(categoria, elementoActivo, elementoCarrusel) {
+function cargarPeliculasPorCategoria(
+  categoria,
+  elementoActivo,
+  elementoCarrusel
+) {
   let elementosAgregadosAlActivo = 0;
 
   for (let i = 0; i < listaPeliculas.length; i++) {
@@ -320,29 +370,26 @@ function cargarPeliculasPorCategoria(categoria, elementoActivo, elementoCarrusel
     if (
       elementosAgregadosAlActivo < 5 &&
       pelicula.released &&
-      Array.isArray(pelicula.categoria) &&
-      pelicula.categoria.some((cat) => cat.toLowerCase() === categoria.toLowerCase())
+      pelicula.categoria.toLowerCase() === categoria.toLowerCase()
     ) {
       elementoActivo.innerHTML += `
-        <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
-          <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
-        </a>
-      `;
+       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
+         <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
+       </a>
+     `;
       elementosAgregadosAlActivo++;
     } else if (
       pelicula.released &&
-      Array.isArray(pelicula.categoria) &&  
-      pelicula.categoria.some((cat) => cat.toLowerCase() === categoria.toLowerCase())
+      pelicula.categoria.toLowerCase() === categoria.toLowerCase()
     ) {
       elementoCarrusel.innerHTML += `
-        <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
-          <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
-        </a>
-      `;
+       <a href="./pages/detallePelicula.html#${pelicula.codigo}" class="aSinDecoracion">
+         <img src="${pelicula.srcImage}" class="img-carrusel efectoFoto" alt="${pelicula.nombre}" />
+       </a>
+     `;
     }
   }
 }
-
 
 cargarPeliculasPorCategoria(
   "ficcion",
@@ -368,46 +415,40 @@ cargarPeliculasPorCategoria(
   document.getElementById("carruselAccion")
 );
 
-
-/* 
-let botoncambiar = document.getElementById("botoncambiar");
-
 const peliculaDestada = () => {
   let imgDestacada = document.getElementById("imgDestacada");
   let peliculaEstrella = listaPeliculas.find((item) => item.destacada === true);
   imgDestacada.innerHTML = `
-  <div class="d-flex justify-content-center">
-  <img
-    src= ${peliculaEstrella.srcImage}
-    class="card-img-top img-destacada"
-    alt="pelicula destacada"
-  />
-  <a
-    href=${peliculaEstrella.trailerLink}
-    target="_blank"
-  >
-    <div class="btn-play">
-      <i
-        class="fa-regular fa-circle-play fa-5x"
-        style="color: #ffffff"
-      ></i></div
-  ></a>
+ <div class="d-flex justify-content-center">
+ <img
+   src= ${peliculaEstrella.srcImage}
+   class="card-img-top img-destacada"
+   alt="pelicula destacada"
+ />
+ <a
+   href=${peliculaEstrella.trailerLink}
+   target="_blank"
+ >
+   <div class="btn-play">
+     <i
+       class="fa-regular fa-circle-play fa-5x"
+       style="color: #ffffff"
+     ></i></div
+ ></a>
 </div>
 <div class="card-body container">
-  <h5 class="card-title fw-semibold">${peliculaEstrella.nombre} </h5>
-  <p class="card-text">
-   ${peliculaEstrella.description}
-  </p>
-  <button id="botoncambiar">cambiar</button>
-  <a
-    href="https://www.youtube.com/watch?v=4HOrjGQhpV4"
-    target="_blank"
-    ><button class="btn btn-reproducir">Reproducir</button></a
-  >
+ <h5 class="card-title fw-semibold">${peliculaEstrella.nombre} </h5>
+ <p class="card-text">
+  ${peliculaEstrella.description}
+ </p>
+
+ <a
+   href="https://www.youtube.com/watch?v=4HOrjGQhpV4"
+   target="_blank"
+   ><button class="btn btn-reproducir">Reproducir</button></a
+ >
 </div>
-  `;
+ `;
 };
 
-botoncambiar.addEventListener("click", peliculaDestada);
- */
-console.log(listaPeliculas)
+peliculaDestada();
