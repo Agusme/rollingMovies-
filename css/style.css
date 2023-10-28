@@ -23,7 +23,6 @@
 .color-icons:hover {
   color:#94909b
   
-
 }
 .bg-degradeNegro {
   background: rgb(58, 21, 128);
@@ -41,6 +40,7 @@
 .img-carrusel {
   width: 13vw;
 }
+
 .efectoFoto:hover {
   position: relative;
   top: 2px;
@@ -93,18 +93,10 @@
   background-position: center;
 }
 
-/* Tamaño tablet (768-480) */
-@media all and (min-width: 480px) and (max-width: 768px) {
-  .w-logo {
-    width: 25vw;
-  }
-}
+
 .img-destacada{
   height: 75vh;
   background-repeat: repeat;
-
-
-
 }
 .btn-play {
   position: absolute;
@@ -113,12 +105,13 @@
   z-index: 3;
   border-radius: 50%; 
 }
-.btn-play:hover {
-  box-shadow: 15px 15px 28px rgb(31, 15, 56);
-}
+.btn-play :hover{
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  z-index: 3;
 
 
-/* Tamaño teléfonos (480-menos ) */
 @media all and (max-width: 480px) {
   .w-logo {
     width: 40vw;
@@ -126,8 +119,14 @@
   .btn-volver {
     display: none;
   }
-  .img-destacada{
-    height: 85vh;
-    background-repeat: repeat;
+  .img-carrusel {
+    width: 15vw;
+  }
+ 
+}
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .w-logo {
+    width: 25vw;
+
   }
 }

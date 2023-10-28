@@ -1,4 +1,4 @@
-import { login, logout } from "./admin.js";
+import { login, logout } from "./helpers.js";
 document.addEventListener("DOMContentLoaded", ()=>{
     login()
   });
